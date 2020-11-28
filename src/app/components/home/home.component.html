@@ -1,0 +1,83 @@
+<div class='content_block'>
+    <p class='mintext'>
+        Lets us help you find your <br />
+        <span class='next_word'>next</span> home
+    </p>
+</div>
+<br />
+<form [formGroup]="formGroup" (ngSubmit)="onSearch(formGroup.value)">
+    <!-- <span class='detect_button_block'>
+        <button class='detect_button'>
+            <svg width="1.5em" height="1.4em" viewBox="0 0 16 16" class="bi bi-geo" fill="#00d5c3" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 1a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+            </svg>
+        </button>
+    </span> -->
+    <span class='search_block'>
+        <input type="text" class='search' placeholder="Find With City, State, Pincode" formControlName='query' />
+    </span>
+    <span class='search_button_block'>
+        <input type='submit' value="FIND" class='search_button' />
+    </span>
+</form>
+
+<div class='review_block'>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" *ngFor='let review of reviews; let c=index;' [class.active]='c<1' style='text-align:center;'>
+                <div class='row'>
+                    <div class='col-md-6 col-6 col-s-6'>
+                        <div class='row'>
+                            <div class='col profimg' style='text-align:right;'>
+                                <img src='assets/images/icon.png' style='width:64px; height: 64px; border-radius: 50%;' class='img-circle' />
+                            </div>
+                            <div class='col' style='text-align:left;'>
+                                <span style='color:rgb(255, 255, 255); font-weight: bold; font-size:medium;'> {{review.name}}</span>
+                                <br />
+                                <span style='color:rgb(255, 255, 255); font-weight: lighter; font-size:small;'>{{ review.date_joined }}</span>
+                            </div>
+                        </div>
+                        <br />
+                        <span *ngFor='let i of counter(review.rating)'>
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="#00d5c3" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class='col-md-6 col-6 col-s-6'>
+                        <p class='review'>
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-chat-quote" fill="#00d5c3" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+                                <path d="M7.468 7.667c0 .92-.776 1.666-1.734 1.666S4 8.587 4 7.667C4 6.747 4.776 6 5.734 6s1.734.746 1.734 1.667z"/>
+                                <path fill-rule="evenodd" d="M6.157 6.936a.438.438 0 0 1-.56.293.413.413 0 0 1-.274-.527c.08-.23.23-.44.477-.546a.891.891 0 0 1 .698.014c.387.16.72.545.923.997.428.948.393 2.377-.942 3.706a.446.446 0 0 1-.612.01.405.405 0 0 1-.011-.59c1.093-1.087 1.058-2.158.77-2.794-.152-.336-.354-.514-.47-.563zm-.035-.012h-.001.001z"/>
+                                <path d="M11.803 7.667c0 .92-.776 1.666-1.734 1.666-.957 0-1.734-.746-1.734-1.666 0-.92.777-1.667 1.734-1.667.958 0 1.734.746 1.734 1.667z"/>
+                                <path fill-rule="evenodd" d="M10.492 6.936a.438.438 0 0 1-.56.293.413.413 0 0 1-.274-.527c.08-.23.23-.44.477-.546a.891.891 0 0 1 .698.014c.387.16.72.545.924.997.428.948.392 2.377-.942 3.706a.446.446 0 0 1-.613.01.405.405 0 0 1-.011-.59c1.093-1.087 1.058-2.158.77-2.794-.152-.336-.354-.514-.469-.563zm-.034-.012h-.002.002z"/>
+                            </svg>
+                            <br />
+                            <br />
+                            {{ review.comment }}
+                            <br />
+                        </p>
+                    </div>
+                </div>
+                <!-- <br /> -->
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev" >
+            <span class="carousel-control" aria-hidden="true">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-caret-left-fill" fill="#00d5c3" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                </svg>
+            </span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control" aria-hidden="true">
+                <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="#00d5c3" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                </svg>
+            </span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>

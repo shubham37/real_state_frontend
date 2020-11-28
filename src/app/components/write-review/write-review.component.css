@@ -1,0 +1,79 @@
+.review_form {
+    padding: 2%;
+    border: 1px solid #00d5c3;
+    background-color: white;
+    border-radius: 2%;
+}
+
+.review_title {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 22px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+form {
+    padding: 2%;
+    text-align: center;
+}
+
+.input_name, .input_email, .input_mobile {
+    background-color: rgba(10,10,10,0.2);
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    font-size: smaller;
+    text-indent: 2%;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.input_name {
+    margin-top: 5px;
+}
+
+.input_name::placeholder, .input_email::placeholder, .input_mobile::placeholder {
+    color: gray;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    border: none;
+    font-size: smaller;
+    text-indent: 2%;
+    background-color: rgba(10,10,10,0.2);
+    border-bottom: 1px solid white;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+textarea::placeholder {
+    color: gray;
+}
+
+.submit_button {
+    margin: 0.5% 0;
+    color: white;
+    background-color: #02ac9d;
+    font-weight: bolder;
+    font-size: small;
+    width: 100%;
+    padding: 2% 0;
+    border: none ;
+    border-radius: 1px;
+}
+
+
+.close_button_block {
+    position: relative;
+    float: right;
+    top: 0;
+    right: 0;
+}
+
+.close_button {
+    background-color: #02c7b6;
+    padding: 1%;
+}
